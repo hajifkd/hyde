@@ -365,20 +365,30 @@ tbody tr:nth-child(odd) th {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
 }
 
 /* Pagination items can be `span`s or `a`s */
-.pagination-item {
+.pagination li {
   display: block;
   padding: 1rem;
   border: 1px solid #eee;
 }
-.pagination-item:first-child {
+
+.pagination li:first-child {
   margin-bottom: -1px;
 }
 
+.pagination li.disabled a {
+  filter: grayscale(1.0); 
+  pointer-events: none;
+}
+
 /* Only provide a hover state for linked pagination items */
-a.pagination-item:hover {
+.pagination li a:hover {
   background-color: #f5f5f5;
 }
 
@@ -386,16 +396,16 @@ a.pagination-item:hover {
   .pagination {
     margin: 3rem 0;
   }
-  .pagination-item {
+  .pagination li {
     float: left;
     width: 50%;
   }
-  .pagination-item:first-child {
+  .pagination li:first-child {
     margin-bottom: 0;
     border-top-left-radius:    4px;
     border-bottom-left-radius: 4px;
   }
-  .pagination-item:last-child {
+  .pagination li:last-child {
     margin-left: -1px;
     border-top-right-radius:    4px;
     border-bottom-right-radius: 4px;
